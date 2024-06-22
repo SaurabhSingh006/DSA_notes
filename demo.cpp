@@ -66,10 +66,33 @@ class Parent2 {
 class ChildMulti : public Parent1, public Parent2 {
 };
 
+// 3 => Multi level inheritance: level 1 class >> level2 class >> level3 class
+
+class Level1 {
+    public:
+    void l1Info() {
+        cout << "Level 1" << endl;
+    }
+};
+
+class Level2 : public Level1 {
+    public:
+    void l2Info() {
+        cout << "Level 2" << endl;
+    }
+};
+
+class Level3 : public Level2 {
+    public:
+    void l3Info() {
+        cout << "Level 3" << endl;
+    };
+};
 
 int main() { 
-    ChildMulti c1;
-    c1.p1Legacy();
-    c1.p2Legacy();
+    Level3 l;
+    l.l1Info();
+    l.l2Info();
+    l.l3Info();
     cout << endl << endl;
 }
