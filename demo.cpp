@@ -35,7 +35,23 @@ class student {
     }
 };
 
+// INHERITANCE
+// 5 types of inheritance are; 
+// 1 => Single inheritance: Here their were two class one parent and one child. The child class has the ability to get access all the public properties and function of parent class
+
+class Parent {
+    public:
+    void legacy() {
+        cout << "Inherited";
+    }
+};
+
+class Child : public Parent {
+};
+
+
 int main() { 
-    student a;
-    cout << "Main ends" << endl << endl;
+    Child c1;
+    c1.legacy();
+    cout << endl << endl;
 }
