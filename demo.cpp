@@ -49,9 +49,27 @@ class Parent {
 class Child : public Parent {
 };
 
+// 2 => Multiple Inheritance: IN this inheritance child class has more than one parent class
+class Parent1 {
+    public: 
+    void p1Legacy() {
+        cout << "Parent 1 inherited" << endl;
+    }
+};
+class Parent2 {
+    public: 
+    void p2Legacy() {
+        cout << "Parent 2 inherited" << endl;
+    }
+};
+
+class ChildMulti : public Parent1, public Parent2 {
+};
+
 
 int main() { 
-    Child c1;
-    c1.legacy();
+    ChildMulti c1;
+    c1.p1Legacy();
+    c1.p2Legacy();
     cout << endl << endl;
 }
