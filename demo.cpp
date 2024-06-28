@@ -1,98 +1,50 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class student {
+class Node {
     // This are private properties can be accessable outside the class defination 
-    string name;
-    int age;
-    bool gender;
 
-    public: // All the function below this will be accessable
-
-    // In C++ their are 4 types of constructor
-    // 1 => Default constructor: This will call while initializing instance of the class with no parameters. Majorly this is used for setup the default values to the instance properties
-    student() {
-        cout << "Default setup code here";
-    }
-
-    // 2 => Parameterised Constructor: This used to set the custom values to the instance properties.
-    student(string n, int a, bool g) {
-        name = n;
-        age = a;
-        gender = g;
-    }
-
-    // 3 => Copy constructor: This is used to make deep copy of the instance.
-    student(student &c) {
-        name = c.name;
-        age = c.age;
-        gender = c.gender;
-    }
-
-    // 4 => Destroy constructor: This constructor is called when the instance is deleting fron the memory or stack 
-    ~student() {
-        cout << "Destructor called";
-    }
-};
-
-// INHERITANCE
-// 5 types of inheritance are; 
-// 1 => Single inheritance: Here their were two class one parent and one child. The child class has the ability to get access all the public properties and function of parent class
-
-class Parent {
     public:
-    void legacy() {
-        cout << "Inherited";
+    int data;
+    Node* next;
+    
+    Node(int d) {
+        data = d;
+        next = NULL;
     }
 };
 
-class Child : public Parent {
-};
+void displayList(Node h) {
+    Node current = h;
 
-// 2 => Multiple Inheritance: IN this inheritance child class has more than one parent class
-class Parent1 {
-    public: 
-    void p1Legacy() {
-        cout << "Parent 1 inherited" << endl;
-    }
-};
-class Parent2 {
-    public: 
-    void p2Legacy() {
-        cout << "Parent 2 inherited" << endl;
+    while (current.next != NULL)
+    {
+        cout << current.data << "=>";
+        current = *(current.next);
     }
 };
 
-class ChildMulti : public Parent1, public Parent2 {
-};
-
-// 3 => Multi level inheritance: level 1 class >> level2 class >> level3 class
-
-class Level1 {
-    public:
-    void l1Info() {
-        cout << "Level 1" << endl;
-    }
-};
-
-class Level2 : public Level1 {
-    public:
-    void l2Info() {
-        cout << "Level 2" << endl;
-    }
-};
-
-class Level3 : public Level2 {
-    public:
-    void l3Info() {
-        cout << "Level 3" << endl;
-    };
+void deleteAt(Node h, int val) {
+    
 };
 
 int main() { 
-    Level3 l;
-    l.l1Info();
-    l.l2Info();
-    l.l3Info();
+    // Creating linked list using NOde
+    Node head(1);
+    Node l1(2);
+    Node l2(3);
+    Node l3(4);
+    Node l4(5);
+    
+    head.next = &l1;
+    l1.next = &l2;
+    l2.next = &l3;
+    l3.next = &l4;
+    
+    // Displaying linked list
+    displayList(head);
+    
+
+    
     cout << endl << endl;
 }
